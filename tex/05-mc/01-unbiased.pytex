@@ -1,0 +1,9 @@
+\item \points{5a}
+An estimator $\hat{\theta}$ is an unbiased estimator of $\theta$ if and only if $\E [\hat{\theta}] = \theta$. 
+Show that $A$ is an unbiased estimator of $p(x)$.
+
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_5a(.*?)% <SCPD_SUBMISSION_TAG>_5a', f.read(), re.DOTALL)).group(1))
+🐍

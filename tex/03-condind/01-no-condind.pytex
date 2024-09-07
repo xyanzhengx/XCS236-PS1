@@ -1,0 +1,9 @@
+\item \points{3a}
+Without any conditional independence assumptions, what is the total number of independent 
+parameters needed to describe the joint distribution over $(X_1, . . . , X_n)$?
+
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_3a(.*?)% <SCPD_SUBMISSION_TAG>_3a', f.read(), re.DOTALL)).group(1))
+🐍

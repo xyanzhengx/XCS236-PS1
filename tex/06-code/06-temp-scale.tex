@@ -1,0 +1,17 @@
+\item \points{6f}
+
+Temperature scaling is a commonly used technique for adjusting the likelihood of the next token. We pick a scalar temperature
+$T > 0$ and divide the next token logits by $T$:
+
+\begin{equation} \label{eq:14}
+    p_{T}(x_i \mid x_{<i}) \propto e^{\log p(x_i \mid x_{<i})/T}
+\end{equation}
+
+
+The model $p$ is the GPT-2 model used in question (6.c) and the model $p_T$ is the temperature-scaled model. For $T < 1$, 
+we can see that $p_T$ induces a \textit{sharper} distribution than $p$, since it makes likely tokens even more likely.
+
+Complete the function \texttt{temperature\_scale} in \texttt{src/submission/sample.py} only for 
+
+the case when \texttt{temperature\_horizon=1} 
+to perform temperature scaling during sampling.

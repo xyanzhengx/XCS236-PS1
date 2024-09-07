@@ -1,0 +1,212 @@
+% This contents of this file will be inserted into the _Solutions version of the
+% output tex document.  Here's an example:
+
+% If assignment with subquestion (1.a) requires a written response, you will
+% find the following flag within this document: <SCPD_SUBMISSION_TAG>_1a
+% In this example, you would insert the LaTeX for your solution to (1.a) between
+% the <SCPD_SUBMISSION_TAG>_1a flags.  If you also constrain your answer between the
+% START_CODE_HERE and END_CODE_HERE flags, your LaTeX will be styled as a
+% solution within the final document.
+
+% Please do not use the '<SCPD_SUBMISSION_TAG>' character anywhere within your code.  As expected,
+% that will confuse the regular expressions we use to identify your solution.
+\def\assignmentnum{1 }
+\def\assignmenttitle{XCS236 Problem Set \assignmentnum}
+\input{macros}
+\begin{document}
+\pagestyle{myheadings} \markboth{}{\assignmenttitle}
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+This handout includes space for every question that requires a written response.
+Please feel free to use it to handwrite your solutions (legibly, please).  If
+you choose to typeset your solutions, the |README.md| for this assignment includes
+instructions to regenerate this handout with your typeset \LaTeX{} solutions.
+\ruleskip
+
+\LARGE
+1
+\normalsize
+% <SCPD_SUBMISSION_TAG>_1
+\begin{answer}
+    To help you get started consider this: We rely on the known property that if $\psi$ is a strictly monotonically decreasing function, then the following two problems are equivalent:
+
+    \begin{center}
+        $\max\limits_{\theta} f(\theta) = \min\limits_{\theta} \psi(f(\theta))$
+    \end{center}
+
+
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1
+
+\clearpage
+
+\LARGE
+2
+\normalsize
+% <SCPD_SUBMISSION_TAG>_2
+\begin{answer}
+    To help you get start consider that:
+
+    \begin{center}
+        $p_{\theta}(y \mid x) = \frac{p_{\theta}(x,y)}{p_{\theta}(x)}$
+        $= \frac{\pi_{y} \cdot \exp\left(- \frac{1}{2\sigma^2} \left(x-\mu_{y}\right)^{\top}\left(x-\mu_{y}\right)\right) \cdot Z^{-1}(\sigma)}{\sum_{i} \pi_i \cdot \exp\left(- \frac{1}{2\sigma^2}\left(x-\mu_{i}\right)^{\top}\left(x-\mu_{i}\right)\right) \cdot Z^{-1}(\sigma)}$
+    \end{center}
+
+    where $Z(\sigma)$ is the Gaussian partition function (which is a function of $\sigma$). 
+    
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2
+
+
+\clearpage
+
+\LARGE
+3a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3a
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_3a
+
+\LARGE
+3b
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3b
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_3b
+
+\LARGE
+3c
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3c
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_3c
+
+\clearpage
+
+\LARGE
+4
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_4
+\begin{answer}
+    To provide more direction consider proving (*) or (**) below:
+    Consider the simple case of describing a joint distribution over $(X_1,X_2)$ using 
+    the forward versus reverse factorizations. Consider the forward factorization where
+
+    \begin{center}
+        $p_f(x_1) = \calN(x_1 \mid 0,1)$ \\
+        $p_f(x_2 \mid x_1) = \calN(x_2 \mid \mu_2(x_1), \epsilon)$
+    \end{center}
+
+    for which
+
+    \begin{center}
+        $
+        \mu_2(x_1) = 
+        \begin{cases}
+            0 & \text{if } x_1 \le 0 \\
+            1 & \text{otherwise}
+        \end{cases}
+        $
+    \end{center}
+
+    (*) This construction makes $p_f(x_2)$ a mixture of two distinct Gaussians, which $p_r(x_2)$ cannot match, since $p_r(x_2)$ is 
+    strictly Gaussian. Any counterexample of this form, which makes $p_f(x_2)$ non-Gaussian, suffices for full-credit.
+
+    (**) Interestingly, we can also intuit about the distribution $p_f(x_1 \mid x_2)$. If one chooses a very small positive $\epsilon$, then the 
+    corresponding $p_f(x_1 \mid x_2)$ will approach a truncated Gaussian distribution, which cannot be approximated by the Gaussian $p_r(x_1 \mid x_2)$
+    \footnote{This observation will be useful when we move on to variational autoencoders $p(z,x)$ (where $z$ is a latent variable) and discuss the 
+    importance of having good variational approximations of the true posterior $p(z \mid x)$}.
+
+    Optionally, we can prove (*) and a variant of (**) which states that, any $\epsilon > 0$, the distribution:
+
+    \begin{center}
+        $p_f(x_1 \mid x_2) = \frac{p_f(x_1,x_2)}{p_f{x_2}}$
+    \end{center}
+
+    is a mixture of truncated Gaussians whose mixture weights depend on $\epsilon$.
+
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_4
+
+\clearpage
+
+\LARGE
+5a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_5a
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_5a
+
+\LARGE
+5b
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_5b
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_5b
+
+\clearpage
+
+\LARGE
+6a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_6a
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_6a
+
+\LARGE
+6b
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_6b
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_6b
+
+\LARGE
+6g
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_6g
+\begin{answer}
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_6g
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+\end{document}

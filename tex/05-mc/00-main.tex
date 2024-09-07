@@ -1,0 +1,29 @@
+\item {\bf Monte Carlo Integration}
+
+A latent variable generative model specifies a joint probability distribution $p(x,z)$ between a set of observed 
+variables $x \in \calX$ and a set of latent variables $z \in \calZ$. From the definition of conditional probability, 
+we can express the joint distribution as $p(x, z) = p(z)p(x \mid z)$. Here, $p(z)$ is referred to as the 
+prior distribution over $z$ and $p(x \mid z)$ is the likelihood of the observed data given the latent variables. 
+One natural objective for learning a latent variable model is to maximize the marginal likelihood of the observed data given by:
+
+\begin{equation} \label{eq:12}
+    p(x) = \int_z p(x,z)dz
+\end{equation}
+
+When $z$ is high dimensional, evaluation of the marginal likelihood is computationally intractable even if we can 
+tractably evaluate the prior and the conditional likelihood for any given $x$ and $z$. We can however 
+use Monte Carlo to estimate the above integral. To do so, we sample $k$ samples from the prior $p(z)$ 
+and our estimate is given as:
+
+\begin{equation} \label{eq:13}
+    A(z^{(1)},...,z^{(k)}) = \frac{1}{k} \sum_{i=1}^{k} p(x \mid z^{(i)}), \text{ where } z^{(i)} \sim p(z)
+\end{equation}
+
+\begin{enumerate}
+
+  \input{05-mc/01-unbiased}
+
+  \input{05-mc/02-log}
+
+\end{enumerate}
+

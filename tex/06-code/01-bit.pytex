@@ -1,0 +1,9 @@
+\item \points{6a}
+
+Suppose we wish to find an efficient bit representation for the 50257 tokens. That is, every token is represented as 
+$(a_1,a_2,...,a_n)$, where $a_i \in \{0,1\}, \forall i = 1,2,...,n$. What is the minimal $n$ that we can use?
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_6a(.*?)% <SCPD_SUBMISSION_TAG>_6a', f.read(), re.DOTALL)).group(1))
+🐍

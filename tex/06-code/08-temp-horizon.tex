@@ -1,0 +1,17 @@
+\item \points{6h}
+
+Next, we will implement temperature scaling over more than than one token (for simplicity, we will do
+temperature scaling over two tokens).
+
+\begin{equation} \label{eq:17}
+    p_{T}^{\texttt{joint-2}} (x_i, x_{i+1} \mid x_{<i}) \propto e^{\log p(x_i,x_{i+1} \mid x_{<i})/T} \\
+\end{equation}
+
+\begin{equation} \label{eq:18}
+    p_{T}^{\texttt{joint-2}} (x_i \mid x_{<i}) = \sum_{j} p_{T}^{\text{joint-2}} (x_i, x_{i+1} = a_j \mid x_{<i})
+\end{equation}
+
+Complete the function \texttt{temperature\_scale} in \texttt{src/submission/sample.py} for the 
+
+case when \texttt{temperature\_horizon=2} 
+to perform temperature scaling over a horizon of two tokens.

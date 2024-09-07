@@ -1,0 +1,9 @@
+\item \points{3b}
+Under what independence assumptions is it possible to represent the joint distribution 
+$(X_1,...,X_n)$ with $\sum_{i=1}^{n} (k_i-1)$ total number of independent parameters?
+
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_3b(.*?)% <SCPD_SUBMISSION_TAG>_3b', f.read(), re.DOTALL)).group(1))
+🐍

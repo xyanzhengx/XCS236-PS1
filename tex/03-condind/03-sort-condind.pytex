@@ -1,0 +1,20 @@
+\item \points{3c}
+
+Let $1,2,...,n$ denote the topological sort for a Bayesian network for the random variables 
+$X_1,X_2,...,X_n$. Let $m$ be a positive integer in $\{1,2,...,n-1 \}$. Suppose, for every $i > m$, 
+the random variable $X_i$ is conditionally independent of all ancestors given the previous $m$ 
+ancestors in the topological ordering. Mathematically, we impose the independence assumptions
+
+\begin{equation}\label{eq:7}
+    p(X_i \mid X_{i-1},X_{i-2},...,X_{2},X_{1}) = p(X_i \mid X_{i-1},X_{i-2},...,X_{i-m})
+\end{equation}
+
+for $i > m$. For $i \le m$, we impose no conditional independence of $X_i$ with respect to its 
+ancestors. Derive the total number of independent parameters to specify the joint distribution over 
+$(X_1, . . . , X_n)$. You can express the answer using summation and product symbols.
+
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_3c(.*?)% <SCPD_SUBMISSION_TAG>_3c', f.read(), re.DOTALL)).group(1))
+🐍

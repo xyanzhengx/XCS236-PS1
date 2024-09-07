@@ -1,0 +1,57 @@
+\item \points{4} \noindent \textbf{Autoregressive Models} 
+
+Consider a set of $n$ univariate \textit{continuous} real-valued random variables $(X_1, . . . , X_n)$. 
+You have access to powerful neural networks $\{\mu_i\}_{i=1}^{n}$ and $\{\sigma_i\}_{i=1}^{n}$ that can 
+represent any function $\mu_i : \Re^{i-1} \rightarrow \Re$ and $\sigma_i : \Re^{i-1} \rightarrow \Re_{++}$. 
+We shall, for notational simplicity, define $\R^{0} = \{0\}$. You choose to build the following Gaussian 
+autoregressive model in the \textit{forward} direction: 
+
+\begin{equation} \label{eq:8}
+   p_f(x_1,...,x_n) = \prod_{i=1}^{n} p_f(x_i \mid x_{<i}) = \prod_{i=1}^{n} \calN (x_i \mid \mu_i(x_{<i}), \sigma_i^2(x_{<i}) )
+\end{equation}
+
+where $x_{<i}$ denotes:
+
+\begin{equation}  \label{eq:9}
+    x_{<i} = 
+    \begin{cases}
+        (x_1,...,x_{i-1})^{\top} & \text{if } i > 1 \\
+        0 & \text{if } i=1
+    \end{cases}
+\end{equation}
+
+Your friend chooses to factor the model in the \textit{reverse} order using equally powerful neural networks 
+${ \{ \hat{\mu}_i \} }_{i=1}^{n}$ and ${\{ \hat{\sigma}_i \}}_{i=1}^{n}$ that can represent any function
+$\hat{\mu}_i : \Re^{n-i} \rightarrow \R$ and $\hat{\sigma}_i : R^{n-i} \rightarrow R_{++}$:
+
+\begin{equation} \label{eq:10}
+    p_{r} (x_1,...,x_n) = \prod_{i=1}^{n} p_{r}(x_i \mid x_{>i}) = \prod_{i=1}^{n} \calN(x_i \mid \hat{\mu}_i (x_{>i}), \hat{\sigma}^2_i (x_{>i}))
+\end{equation}
+
+where $x_{>i}$ denotes:
+
+\begin{equation} \label{eq:11}
+    x_{>i} = 
+    \begin{cases}
+        (x_{i+1},...,x_{n})^{\top} & \text{if } i < n \\
+        0 & \text{if } i=n
+    \end{cases}
+\end{equation}
+
+Do these models cover the same hypothesis space of distributions? In other words, given any choice of 
+$\{\mu_i, \sigma_i\}_{i=1}^{n}$, does there always exist a choice of ${\{ {\hat{\mu}}_{i}, {\hat{\sigma}}_{i} \}}_{i=1}^{n}$ 
+such that $p_{f} = p_{r}$? If yes, provide a proof. Else, provide a concrete counterexample, 
+including mathematical definitions of the modeled functions, and explain why.
+
+\textbf{Hint}: Consider the case where $n = 2$.
+
+\begin{center}
+    $p_f(x_1 \mid x_2) = \frac{p_f(x_1,x_2)}{p_f{x_2}}$
+\end{center}
+
+is a mixture of truncated Gaussians whose mixture weights depend on $\epsilon$.
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_4(.*?)% <SCPD_SUBMISSION_TAG>_4', f.read(), re.DOTALL)).group(1))
+🐍

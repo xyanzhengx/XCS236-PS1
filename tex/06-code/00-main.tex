@@ -1,0 +1,56 @@
+\item {\bf Programming assignment}
+
+In this programming assignment, we will use an autoregressive generative model to create text. We will 
+generate samples from the recent \href{https://openai.com/research/better-language-models}{OpenAI GPT-2 model}. 
+It is a model based on the Transformer, which is a  special kind of autoregressive model built on self-attention blocks, and 
+has become the backbone of many recent state-of-the-art sequence models in Natural Language Processing. 
+See this \href{https://jalammar.github.io/illustrated-transformer/}{blog} post for a friendly introduction. You will be asked to implement the sampling procedure for this model and compute likelihoods. 
+
+In Figure \ref{fig:gpt}, we show an illustration on how this model (roughly) works. Consider a sequence of tokens $x_0,x_1,...,x_T$. 
+For each token $x_i$, it has 50257 possible values. First, for each possible value of a token, we use a 768-dimensional 
+trainable vector as its embedding, which results in a total of 50257 different embedding vectors. Next, we feed 
+the embeddings into a GPT-2 network. The output vectors of the GPT-2 network are finally passed through a fully-connected 
+layer to form a 50257-way softmax representing the probability distribution of the next token $p_{i+1}$. See Figure \ref{fig:gpt} for an illustration.
+
+Training such models can be computationally expensive, requiring specialized GPU hardware. In this particular assignment, 
+we provide a smaller pretrained model. It should be feasible to run this model without using any GPUs. 
+After loading this pretrained model into \texttt{PyTorch}, you are expected to implement and answer the following questions.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./figures/gpt-2}
+    \caption{The architecture of our model. $T$ is the sequence length of a given input. $x_i$ is the index token. $e_{x_{i}}$ is the trainable embedding of token $x_i$. $h_i$ is the output of GPT-2. $l_i$ is the logit and $p_i$ is the probability. Nodes in gray contain trainable parameters.}
+    \label{fig:gpt}
+\end{figure}
+
+To run the models for 6.c through 6.f, please run
+\begin{verbatim}
+  python main.py 
+\end{verbatim}
+
+For GPU acceleration run run the command below. \textbf{Note:} we are not supporting MPS GPUs as it trains slower than CPU-enabled training on Apple Silicon devices. 
+\begin{verbatim}
+  python main.py --device gpu
+\end{verbatim}
+
+\begin{enumerate}
+
+  \input{06-code/01-bit}
+
+  \input{06-code/02-params}
+
+  \input{06-code/03-sample}
+
+  \input{06-code/04-log-likelihood}
+
+  \input{06-code/05-infer}
+
+  \input{06-code/06-temp-scale}
+
+  \input{06-code/07-joint-temp}
+
+  \input{06-code/08-temp-horizon}
+
+
+\end{enumerate}
+

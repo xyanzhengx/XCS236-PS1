@@ -1,0 +1,33 @@
+\item \points{2} \noindent \textbf{Logistic Regression and Naive Bayes} 
+
+A mixture of $k$ Gaussians specifies a joint distribution given by $p_{\theta}(\bm{x},y)$ where $y \in \{1,...,k\}$
+signifies the mixture id and $\bm{x} \in \Re^{n}$ denotes $n$-dimensional real valued points. 
+The generative process for this mixture can be specified as:
+
+\begin{equation} \label{eq:3}
+    p_{\theta}(y) = \pi_{y}, \text{where} \sum_{y=1}^{k} \pi_{y} = 1
+\end{equation}
+
+\begin{equation} \label{eq:4}
+    p_{\theta}(\bm{x} \mid y) = \calN (\bm{x} \mid \mu_{y}, \sigma^2 I)
+\end{equation}
+
+where we assume a diagonal covariance structure for modeling each of the Gaussians in the mixture. Such a model is parameterized by 
+$\theta = (\pi_1,\pi_2,...,\pi_k,\bm{\mu}_1,\bm{\mu}_2,...,\bm{\mu}_k,\sigma)$, where $\pi_i \in \Re_{++}$, $\bm{\mu}_i \in \Re^{n}$, and $\sigma \in \Re_{++}$. 
+Now consider the multi-class logistic regression model for directly predicting $y$ from $x$ as:
+
+\begin{equation} \label{eq:5}
+    p_{\gamma}(y \mid \bm{x}) = \frac{\exp(\bm{x}^{\top}\bm{w}_{y} + b_{y})}{\sum_{i=1}^{k} \exp(\bm{x}^{\top} \bm{w}_{i} + b_{i})} 
+\end{equation}
+
+parameterized by vectors $\gamma = \{\bm{w}_1,\bm{w}_2,...,\bm{w}_k,b_1,b_2,...,b_k \}$, where $\bm{w}_{i} \in \Re^{n}$ and $b_{i} \in \Re$. Show that for any 
+choice of $\theta$, there exists $\gamma$ such that:
+
+\begin{equation} \label{eq:6}
+    p_{\theta}(y \mid \bm{x}) = p_{\gamma}(y \mid \bm{x})
+\end{equation}  
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2(.*?)% <SCPD_SUBMISSION_TAG>_2', f.read(), re.DOTALL)).group(1))
+🐍

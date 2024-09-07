@@ -1,0 +1,11 @@
+\item \points{6b}
+
+If the number of possible tokens increases from 50257 to 60000, what is the increase in the number of parameters? 
+Give an exact number and explain your answer.
+
+\textbf{Hint}: The number of parameters in the GPT-2 module in Fig. \ref{fig:gpt} does not change.
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_6b(.*?)% <SCPD_SUBMISSION_TAG>_6b', f.read(), re.DOTALL)).group(1))
+🐍

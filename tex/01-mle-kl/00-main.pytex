@@ -1,0 +1,21 @@
+\item \points{1} \noindent\textbf{Maximum Likelihood Estimation and KL Divergence} 
+
+Let $\hat{p}(x, y)$ denote the empirical data distribution over a space of inputs $x \in \calX$ and outputs $y \in \calY$. 
+For example, in an image recognition task, $x$ can be an image and $y$ can be whether the image contains a cat or not. 
+Let $p_{\theta}(y \mid x)$ be a probabilistic classifier parameterized by $\theta$, e.g., a logistic regression classifier with coefficients $\theta$. 
+Show that the following equivalence holds:
+
+\begin{equation} \label{eq:1}
+    \argmax_{\theta \in \Theta} \E_{\hat{p}(x,y)} [ \log p_{\theta}(y \mid x) ] = \argmin_{\theta \in \Theta} \E_{\hat{p}(x)} [ \KL (\hat{p}(y \mid x) \mid \mid p_{\theta}(y \mid x)) ]
+\end{equation}
+
+where $\KL$ denotes the KL-divergence:
+
+\begin{equation} \label{eq:2}
+    \KL (p(x) \mid \mid q(x)) = \E_{x \sim p(x)} [\log p(x) - \log q(x)]
+\end{equation}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_1(.*?)% <SCPD_SUBMISSION_TAG>_1', f.read(), re.DOTALL)).group(1))
+🐍

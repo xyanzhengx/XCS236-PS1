@@ -1,0 +1,38 @@
+\item \points{6g}
+
+In the previous question, we performed temperature scaling only over the next token, 
+i.e., with $T < 1$ we made likely next-tokens even more likely. What if we want to make likely \textit{sentences} even more likely?
+In this case, we should consider scaling the \textit{joint temperature}.
+
+\begin{equation} \label{eq:15}
+    p_{T}^{\text{joint}}(x_0,x_1,...,x_M) \propto e^{\log p(x_0,x_1,...,x_M)/T}
+\end{equation}
+
+
+Does applying chain rule with single-token temperature scaling recover joint temperature scaling? 
+In other words, determine if the following equation holds for arbitrary $T$:
+
+\begin{equation}  \label{eq:16}
+    \prod_{i=0}^{M} p_T(x_i \mid x_{<i}) \overset{?}{=} p_{T}^{\text{joint}}(x_0,x_1,...,x_M)
+\end{equation}
+
+\textbf{Hint: }Suppose we have an autoregressive model $p(x,y)$ with the following parameterization:
+\begin{center}
+    $p(x)\propto f(x)$ \\
+    $p(y) \propto g(x,y)$
+\end{center}
+
+with non-negative functions $f,g$. What can we say about $p(x,y)$? We can NOT assume that
+
+\begin{center}
+    $p(x,y) \propto f(x)g(x,y)$
+\end{center}
+
+because we must write $p(y \mid x) = \frac{g(x,y)}{\int_y g(x,y)dy\prime}$, where the normalizing constant
+in the denominator depends on $x$. If we write the joint probability this way, we incorrectly assume that the
+normalizing constant in the denominator will be the same for all $x$'s. 
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_6g(.*?)% <SCPD_SUBMISSION_TAG>_6g', f.read(), re.DOTALL)).group(1))
+🐍
